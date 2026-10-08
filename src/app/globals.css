@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: #070709;
+    color: #f5f5f7;
+    overflow-x: hidden;
+    font-family: var(--font-tajawal), sans-serif;
+    cursor: default;
+  }
+  button,
+  .ui-chrome {
+    user-select: none;
+  }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #6fbd46;
+    outline-offset: 5px;
+  }
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  user-select: none;
+  z-index: 99;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+.glass-nav {
+  background: rgba(15, 16, 21, 0.65);
+  /* Keep the standard declaration last so the compiler preserves it for Chromium. */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.glass-card:hover {
+  border-color: rgba(111, 189, 70, 0.3);
+  background: linear-gradient(135deg, rgba(44, 138, 54, 0.03) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+/* The template's /98 background utility produced no background. Preserve the rendered result. */
+.menu-curtain {
+  background: transparent;
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+}
+.brand-logo {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  width: clamp(6.5rem, 18vw, 11.25rem);
+  aspect-ratio: 3.8 / 1;
+  overflow: hidden;
+}
+.brand-logo img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130%;
+  max-width: none;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+.brand-logo--footer {
+  width: 14rem;
+}
+.brand-logo:focus-visible {
+  outline: 2px solid #6fbd46;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+.custom-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    background-color 0.3s;
+}
+.custom-cursor-follower.expanded {
+  width: 72px;
+  height: 72px;
+}
+.stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(245, 245, 247, 0.85);
+  transition:
+    color 0.5s ease,
+    -webkit-text-stroke-color 0.5s ease;
+}
+.stroke-text:hover {
+  -webkit-text-stroke-color: #6fbd46;
+  color: #6fbd46;
+}
+.menu-open .bar-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+.menu-open .bar-2 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+.menu-open .bar-middle {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hero-section {
+  min-height: 100svh;
+}
+.hero-glow-primary {
+  width: 350px;
+  height: 350px;
+  background: rgba(111, 189, 70, 0.1);
+  filter: blur(130px);
+}
+.hero-glow-secondary {
+  width: 200px;
+  height: 200px;
+  background: rgba(12, 98, 45, 0.15);
+  filter: blur(110px);
+}
+.booking-glow {
+  background: rgba(111, 189, 70, 0.15);
+  filter: blur(64px);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.stats-grid[data-count='3'] > :last-child {
+  grid-column: 1 / -1;
+}
+.mobile-contact-bar {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+.field {
+  @apply w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-base focus:outline-none focus:border-accent transition-colors;
+}
+.field[aria-invalid='true'] {
+  border-color: #fca5a5;
+}
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .hero-glow-primary {
+    width: 650px;
+    height: 650px;
+  }
+  .hero-glow-secondary {
+    width: 400px;
+    height: 400px;
+  }
+  .stats-grid[data-count='3'] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .stats-grid[data-count='4'] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .stats-grid[data-count='3'] > :last-child {
+    grid-column: auto;
+  }
+}
+@media (max-width: 767px), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .glass-nav,
+  .glass-card {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  .menu-curtain {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+  .hero-glow-primary {
+    width: 350px;
+    height: 350px;
+    filter: none;
+    background: radial-gradient(circle, rgba(111, 189, 70, 0.13), transparent 70%);
+  }
+  .hero-glow-secondary {
+    width: 240px;
+    height: 240px;
+    filter: none;
+    background: radial-gradient(circle, rgba(12, 98, 45, 0.16), transparent 70%);
+  }
+  .booking-glow {
+    filter: none;
+    background: radial-gradient(circle, rgba(111, 189, 70, 0.15), transparent 70%);
+  }
+  .grain-overlay {
+    background-image: url('/brand/grain.png');
+    background-size: 128px 128px;
+  }
+  .animate-ping,
+  .animate-bounce {
+    animation: none;
+  }
+  .custom-cursor-follower {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

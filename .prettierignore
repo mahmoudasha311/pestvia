@@ -1,0 +1,6 @@
+node_modules
+.next
+package-lock.json
+artifacts
+pestvia_3d_interactive_website.html
+next-env.d.ts

@@ -52,7 +52,7 @@ export const layoutContent = {
   menuTitle: 'استكشف Pestvia',
   platform: `${business.latinName.toUpperCase()} © 2026`,
 
-  whatsapp: 'تواصل عبر واتساب',
+  whatsapp: 'احجز الان',
   call: 'اتصل بنا',
 
   addressTitle: 'موقعنا',

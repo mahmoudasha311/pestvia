@@ -2,8 +2,10 @@ import type { HeroStat } from '../types';
 
 export const heroContent = {
   // TODO(content): unverified claim — next-generation biological protection and AI/nano capabilities.
-  badge: 'الجيل القادم من الوقاية والدرع البيولوجي ٢٠٢٦',
-  technology: 'AI & NANO',
+
+  badge: 'حلول متخصصة لمكافحة الحشرات',
+  technology: 'PEST CONTROL',
+
   // TODO(content): unverified claim — superior protection without chemical traces.
   headline: ['جيل جديد  ', 'من الحماية'],
   // TODO(content): unverified claim — organic frequency barriers, replacement of pesticides and 100% sustainable safety.
